@@ -20,7 +20,7 @@ public class ReadDbDAO {
     private final String LOGIN_QUERY = "SELECT * FROM user WHERE email=? AND password=?";
     private final String SELECT_ALL_QUERY = "SELECT * FROM user";
 
-    private final String INSERT_QUERY = "INSERT INTO user (fName,lName,email,password,gender,country,languages) VALUES (?,?,?,?,?,?,?)";
+    private final String INSERT_QUERY = "INSERT INTO user (name,email,password,gender,country,languages) VALUES (?,?,?,?,?,?)";
 
     public User loginUser(String email, String pass){
         User user = null;
@@ -32,7 +32,7 @@ public class ReadDbDAO {
             if(rs.next()){
                 user = new User();
                 user.setId(rs.getInt("id"));
-                user.setName(rs.getString("fName")+" "+rs.getString("lName"));
+                user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
                 user.setGender(rs.getString("gender"));
@@ -53,7 +53,7 @@ public class ReadDbDAO {
             while (rs.next()){
                 user = new User();
                 user.setId(rs.getInt("id"));
-                user.setName(rs.getString("fName")+" "+rs.getString("lName"));
+                user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
                 user.setGender(rs.getString("gender"));
@@ -70,9 +70,8 @@ public class ReadDbDAO {
     public void addUser(User user, String languages){
         try {
             PreparedStatement ps = connection.prepareStatement(INSERT_QUERY);
-            ps.setString(1,user.getName().split(" ")[0]);
-            ps.setString(2,user.getName().split(" ")[1]);
-            ps.setString(3,user.getEmail());
+            ps.setString(1,user.getName());
+            ps.setString(2,user.getEmail());
             ps.setString(3,user.getPassword());
             ps.setString(4,user.getGender());
             ps.setString(5,user.getUserCountry());

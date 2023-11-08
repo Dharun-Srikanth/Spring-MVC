@@ -8,6 +8,9 @@
 <c:forEach var="user" items="${users}">
     <li>${user.id}</li>
     <li>${user.name}</li>
+    <li>${user.email}</li>
+    <li>${user.gender}</li>
+    <li>${user.country}</li>
 </c:forEach>
 </body>
 </html>

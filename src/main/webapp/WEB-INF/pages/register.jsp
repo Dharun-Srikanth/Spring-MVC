@@ -18,20 +18,16 @@
             <form:input type="text" class="form-control" id="name" path="name" />
         </div>
         <div class="mb-3">
-            <label for="name" class="form-label">Last Name</label>
-            <form:input type="text" class="form-control" id="name" path="name" />
-        </div>
-        <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <form:input type="email" class="form-control" id="email" path="email" />
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <form:input type="password" class="form-control" id="password" path="password" />
+            <form:input type="text" class="form-control" id="password" path="password" />
         </div>
         <div class="mb-3">
             <label for="cPassword" class="form-label">Confirm Password</label>
-            <form:input type="password" class="form-control" id="cPassword" path="password" />
+            <form:input type="text" class="form-control" id="cPassword" path="confirmPassword" />
         </div>
         <div class="mb-3">
             <label for="gender" class="form-label">Gender</label>
@@ -47,7 +43,7 @@
         </div>
         <div class="mb-3">
             <label for="country" class="form-label">Country  </label>
-            <form:select path="country">
+            <form:select path="userCountry">
             <form:option value=" " label="--Select--" />
                 <form:option value="India" label="India" />
                 <form:option value="Canada" label="Canada" />
@@ -56,7 +52,7 @@
             </form:select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button><span><a href="/Spring-MVC">Login Here</a></span>
     </div>
 </form:form>
 
